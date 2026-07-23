@@ -6,10 +6,15 @@
 <title>Lenny — a Claude Code usage tracker</title>
 <meta name="description" content="Lenny is a Claude Code usage tracker and screensaver that counts down the time until reset. Nothing leaves your Mac.">
 <link rel="icon" href="icon.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nateyg.github.io/lenny/">
 <meta property="og:title" content="Lenny — a Claude Code usage tracker">
 <meta property="og:description" content="Counts down the time until your Claude Code usage resets. Nothing leaves your Mac.">
-<meta property="og:image" content="hero.jpg">
+<meta property="og:image" content="https://nateyg.github.io/lenny/share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://nateyg.github.io/lenny/share.png">
 <style>
   @font-face {
     font-family: "Bomber Balloon";
@@ -28,6 +33,8 @@
   body {
     margin: 0;
     min-height: 100vh;
+    min-height: 100svh;          /* vh includes the mobile address-bar area, which scrolls past the footer */
+    overflow-x: hidden;          /* the tilted window mustn't create side-scroll */
     background: var(--bg);
     color: var(--text);
     font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, system-ui, sans-serif;
@@ -78,6 +85,7 @@
 
   .shot {
     width: 80%;
+    max-width: 100%;
     height: auto;
     display: block;
     margin: 0 auto;
@@ -102,15 +110,31 @@
 
   @media (max-width: 900px) {
     .stage {
-      grid-template-columns: 1fr;
-      gap: 44px;
-      padding: 56px 26px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 30px;
+      padding: 48px 24px;
+    }
+    .icon, .copy { margin-left: auto; margin-right: auto; }
+    .req { margin: 8px 0 0; }
+    .shot {
+      width: 100%;
+      max-width: 380px;
+      transform: none;            /* rotation overflowed the viewport on mobile */
+      box-shadow: 0 20px 44px rgba(0,0,0,.5);
+    }
+    footer {
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      padding: 20px 24px 28px;
       text-align: center;
     }
-    .icon { margin-left: auto; margin-right: auto; }
-    .copy { margin-left: auto; margin-right: auto; }
-    .req { margin-left: 0; }
-    footer { flex-direction: column; gap: 10px; padding: 20px 26px 26px; text-align: center; }
+    footer p { max-width: none; }
+    footer p[style] { white-space: normal !important; }   /* let the byline wrap + centre */
   }
 </style>
 </head>

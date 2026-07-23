@@ -116,6 +116,10 @@ final class LennyModel: ObservableObject {
 	private var didPlayReset = false
 	private var demo: Task<Void, Never>?
 	private var player: NSSound?
+	/// The sweep spans the whole floor over the time left, however long that is.
+	/// Anchored when a reset is first seen so the light starts at the far edge.
+	private var sweepAnchor: Date?
+	private var anchoredReset: Date?
 
 	init() {
 		refresh()
@@ -178,15 +182,23 @@ final class LennyModel: ObservableObject {
 		guard let resetAt else {
 			timeRemaining = 0
 			progress = 0
+			sweepAnchor = nil
+			anchoredReset = nil
 			return
 		}
 
-		// The light always crawls toward the line; only the stakes change. Free to
-		// code, it's counting down to your window rolling over. Locked out, it's
-		// counting down to when you can work again.
+		// Anchor the sweep the first time we see this reset. The light then crawls
+		// the whole floor between that anchor and the reset, so it uses the full
+		// width whether there's four hours left or twelve minutes.
+		if anchoredReset != resetAt {
+			anchoredReset = resetAt
+			sweepAnchor = Date()
+		}
+		let anchor = sweepAnchor ?? Date()
 		let remaining = resetAt.timeIntervalSinceNow
 		timeRemaining = max(0, remaining)
-		progress = min(1, max(0, 1 - timeRemaining / window))
+		let span = resetAt.timeIntervalSince(anchor)
+		progress = span > 0 ? min(1, max(0, Date().timeIntervalSince(anchor) / span)) : 1
 
 		if remaining <= 0 && !didPlayReset {
 			didPlayReset = true
