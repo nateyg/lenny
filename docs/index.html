@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lenny — a Claude Code usage tracker</title>
+<meta name="description" content="Lenny is a Claude Code usage tracker and screensaver that counts down the time until reset. Nothing leaves your Mac.">
+<link rel="icon" href="icon.png">
+<meta property="og:title" content="Lenny — a Claude Code usage tracker">
+<meta property="og:description" content="Counts down the time until your Claude Code usage resets. Nothing leaves your Mac.">
+<meta property="og:image" content="hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  @font-face {
+    font-family: "Bomber Balloon";
+    src: url("Bomber Balloon.ttf") format("truetype");
+    font-display: swap;
+  }
+  :root {
+    --bg: #3d3d3d;
+    --text: #f2f2f2;
+    --muted: #8a8a90;
+    --orange: #e96a44;
+    --line: #4c4c4c;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, system-ui, sans-serif;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .stage {
+    flex: 1;
+    display: grid;
+    grid-template-columns: minmax(320px, 5fr) 7fr;
+    gap: 64px;
+    align-items: center;
+    max-width: 1500px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 72px 56px 72px 104px;
+  }
+
+  .icon {
+    width: 78px; height: 78px;
+    border-radius: 20px;
+    display: block;
+    margin-bottom: 26px;
+  }
+  .wordmark {
+    font-family: "Bomber Balloon", system-ui, sans-serif;
+    font-size: clamp(52px, 5.6vw, 78px);
+    line-height: .95;
+    letter-spacing: 0.03em;
+    margin: 0 0 26px;
+  }
+  .copy { color: var(--text); font-size: 15.5px; line-height: 1.45; max-width: 33ch; margin: 0 0 34px; }
+
+  .button {
+    display: inline-block;
+    background: var(--orange);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 15.5px;
+    padding: 15px 34px;
+    border-radius: 999px;
+    transition: transform .12s ease, filter .12s ease;
+  }
+  .button:hover { filter: brightness(1.07); transform: translateY(-1px); }
+  .req { color: var(--muted); font-size: 13px; margin: 13px 0 0 8px; }
+
+  .shot {
+    width: 80%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px;
+    transform: rotate(3.6deg);
+    box-shadow: 0 44px 90px rgba(0,0,0,.55), 0 18px 40px rgba(0,0,0,.4);
+  }
+
+  footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 24px;
+    padding: 20px 56px 26px 104px;
+    color: #6f6f74;
+    font-size: 12.5px;
+    line-height: 1.5;
+  }
+  footer a { color: #6f6f74; }
+  footer p { margin: 0; max-width: 68ch; }
+  .req { color: #6f6f74; }
+
+  @media (max-width: 900px) {
+    .stage {
+      grid-template-columns: 1fr;
+      gap: 44px;
+      padding: 56px 26px;
+      text-align: center;
+    }
+    .icon { margin-left: auto; margin-right: auto; }
+    .copy { margin-left: auto; margin-right: auto; }
+    .req { margin-left: 0; }
+    footer { flex-direction: column; gap: 10px; padding: 20px 26px 26px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="stage">
+    <div>
+      <img class="icon" id="icon" src="icon-right.png" alt="Lenny app icon: two heavy-lidded eyes on an orange square.">
+      <h1 class="wordmark">LENNY</h1>
+      <p class="copy">
+        Lenny is a Claude Code usage tracker and screensaver that counts down the time until reset. Nothing leaves your Mac. Please don’t tell anyone how I live.
+      </p>
+      <a class="button" href="https://github.com/nategagnon/lenny/releases/latest">Download for mac OS</a>
+      <p class="req">free • macOS 14+</p>
+    </div>
+
+    <img class="shot" src="hero.jpg" alt="The Lenny window: Lenny kneeling beside a chalk line reading Coding Time, a spotlight almost touching it, and a red countdown reading Resets in 0:11:36.">
+  </div>
+
+  <footer>
+    <p>Lenny was made by a massive Simpsons fan, entirely for fun. Not affiliated with or endorsed by The Simpsons; all character art belongs to them.</p>
+    <p style="white-space:nowrap">Built by <a href="https://nategagnon.com">Nate Gagnon</a> · <a href="https://github.com/nategagnon/lenny">GitHub</a></p>
+  </footer>
+
+<script>
+  // Lenny glances left and right while you read.
+  const icon = document.getElementById("icon");
+  const looks = ["icon-right.png", "icon-left.png"];
+  let i = 0;
+  setInterval(() => { i = 1 - i; icon.src = looks[i]; }, 3200);
+</script>
+</body>
+</html>

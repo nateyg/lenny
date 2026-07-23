@@ -1,0 +1,58 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+		A1 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
+		A2 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1; };
+		AD /* TranscriptReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptReader.swift; sourceTree = "<group>"; };
+		D1 /* LockoutReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockoutReader.swift; sourceTree = "<group>"; };
+		D2 /* LockoutReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1; };
+		H1 /* DesktopUsage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesktopUsage.swift; sourceTree = "<group>"; };
+		H2 /* DesktopUsage.swift in Sources */ = {isa = PBXBuildFile; fileRef = H1; };
+		D3 /* eyes_template.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eyes_template.png; sourceTree = "<group>"; };
+		D4 /* eyes_template.png in Resources */ = {isa = PBXBuildFile; fileRef = D3; };
+		D5 /* lenny_hero.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lenny_hero.png; sourceTree = "<group>"; };
+		F1 /* Bomber Balloon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bomber Balloon.ttf"; sourceTree = "<group>"; };
+		F2 /* Bomber Balloon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1; };
+		G1 /* homer-woohoo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "homer-woohoo.mp3"; sourceTree = "<group>"; };
+		G2 /* homer-woohoo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = G1; };
+		E7 /* eyelids.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eyelids.png; sourceTree = "<group>"; };
+		E8 /* eyelids.png in Resources */ = {isa = PBXBuildFile; fileRef = E7; };
+		E1 /* Lenny_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Lenny_Icon.png; sourceTree = "<group>"; };
+		E2 /* Lenny_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E1; };
+		E3 /* Lenny_Icon_left of claude.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Lenny_Icon_left of claude.png"; sourceTree = "<group>"; };
+		E4 /* Lenny_Icon_left of claude.png in Resources */ = {isa = PBXBuildFile; fileRef = E3; };
+		E5 /* Lenny_Icon_right of claude.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Lenny_Icon_right of claude.png"; sourceTree = "<group>"; };
+		E6 /* Lenny_Icon_right of claude.png in Resources */ = {isa = PBXBuildFile; fileRef = E5; };
+		D6 /* lenny_hero.png in Resources */ = {isa = PBXBuildFile; fileRef = D5; };
+		AE /* TranscriptReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD; };
+		A3 /* Lenny_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Lenny_background.png; sourceTree = "<group>"; };
+		A4 /* Lenny_background.png in Resources */ = {isa = PBXBuildFile; fileRef = A3; };
+		A5 /* Lenny_beam.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Lenny_beam.png; sourceTree = "<group>"; };
+		A6 /* Lenny_beam.png in Resources */ = {isa = PBXBuildFile; fileRef = A5; };
+		A7 /* lenny_approaching.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lenny_approaching.jpg; sourceTree = "<group>"; };
+		A8 /* lenny_approaching.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A7; };
+		A9 /* eyes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eyes.png; sourceTree = "<group>"; };
+		AA /* eyes.png in Resources */ = {isa = PBXBuildFile; fileRef = A9; };
+		AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB; };
+		AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B1 /* Lenny */ = {isa = PBXNativeTarget; buildConfigurationList = B2; buildPhases = (B3, B4); buildRules = (); dependencies = (); name = Lenny; productName = Lenny; productReference = B5; productType = "com.apple.product-type.application"; };
+		B2 /* XCConfigurationList */ = {isa = XCConfigurationList; buildConfigurations = (B6, B7); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		B3 /* Sources */ = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (A2, AE, D2, H2); runOnlyForDeploymentPostprocessing = 0; };
+		B4 /* Resources */ = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (A4, A6, A8, AA, AC, D4, D6, E2, E4, E6, E8, F2, G2); runOnlyForDeploymentPostprocessing = 0; };
+		B5 /* Lenny.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lenny.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B6 /* Debug */ = {isa = XCBuildConfiguration; buildSettings = {ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon; CODE_SIGN_STYLE = Automatic; COMBINE_HIDPI_IMAGES = YES; CURRENT_PROJECT_VERSION = 1; ENABLE_HARDENED_RUNTIME = YES; ENABLE_USER_SCRIPT_SANDBOXING = NO; INFOPLIST_FILE = Info.plist; MACOSX_DEPLOYMENT_TARGET = 14.0; MARKETING_VERSION = 1.0; PRODUCT_BUNDLE_IDENTIFIER = com.nategagnon.Lenny; PRODUCT_NAME = Lenny; SDKROOT = macosx; SWIFT_VERSION = 5.9; }; name = Debug; };
+		B7 /* Release */ = {isa = XCBuildConfiguration; buildSettings = {ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon; CODE_SIGN_STYLE = Automatic; COMBINE_HIDPI_IMAGES = YES; CURRENT_PROJECT_VERSION = 1; ENABLE_HARDENED_RUNTIME = YES; ENABLE_USER_SCRIPT_SANDBOXING = NO; INFOPLIST_FILE = Info.plist; MACOSX_DEPLOYMENT_TARGET = 14.0; MARKETING_VERSION = 1.0; PRODUCT_BUNDLE_IDENTIFIER = com.nategagnon.Lenny; PRODUCT_NAME = Lenny; SDKROOT = macosx; SWIFT_VERSION = 5.9; }; name = Release; };
+		C1 /* Project object */ = {isa = PBXProject; attributes = {BuildIndependentTargetsInParallel = 1; LastSwiftUpdateCheck = 1500; LastUpgradeCheck = 1500; TargetAttributes = {B1 = {CreatedOnToolsVersion = 15.0; }; }; }; buildConfigurationList = C2; compatibilityVersion = "Xcode 14.0"; developmentRegion = en; hasScannedForEncodings = 0; knownRegions = (en, Base); mainGroup = C3; productRefGroup = C4; projectDirPath = ""; projectRoot = ""; targets = (B1); };
+		C2 /* XCConfigurationList */ = {isa = XCConfigurationList; buildConfigurations = (C5, C6); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		C3 /* Lenny */ = {isa = PBXGroup; children = (A1, AD, D1, H1, A3, A5, A7, A9, D3, D5, E7, E1, E3, E5, F1, G1, AB, AF, C4); sourceTree = "<group>"; };
+		C4 /* Products */ = {isa = PBXGroup; children = (B5); name = Products; sourceTree = "<group>"; };
+		C5 /* Debug */ = {isa = XCBuildConfiguration; buildSettings = {ALWAYS_SEARCH_USER_PATHS = NO; CLANG_ENABLE_MODULES = YES; CLANG_ENABLE_OBJC_ARC = YES; COPY_PHASE_STRIP = NO; DEBUG_INFORMATION_FORMAT = dwarf; ENABLE_STRICT_OBJC_MSGSEND = YES; ENABLE_TESTABILITY = YES; GCC_OPTIMIZATION_LEVEL = 0; MACOSX_DEPLOYMENT_TARGET = 14.0; ONLY_ACTIVE_ARCH = YES; SDKROOT = macosx; SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG; SWIFT_OPTIMIZATION_LEVEL = "-Onone"; SWIFT_VERSION = 5.9; }; name = Debug; };
+		C6 /* Release */ = {isa = XCBuildConfiguration; buildSettings = {ALWAYS_SEARCH_USER_PATHS = NO; CLANG_ENABLE_MODULES = YES; CLANG_ENABLE_OBJC_ARC = YES; COPY_PHASE_STRIP = NO; DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym"; ENABLE_NS_ASSERTIONS = NO; ENABLE_STRICT_OBJC_MSGSEND = YES; MACOSX_DEPLOYMENT_TARGET = 14.0; SDKROOT = macosx; SWIFT_COMPILATION_MODE = wholemodule; SWIFT_OPTIMIZATION_LEVEL = "-O"; SWIFT_VERSION = 5.9; }; name = Release; };
+	};
+	rootObject = C1;
+}
