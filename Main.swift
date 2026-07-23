@@ -122,8 +122,9 @@ final class LennyModel: ObservableObject {
 		tick = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { [weak self] _ in
 			Task { @MainActor in self?.updateCountdown() }
 		}
-		// Reading transcripts hits the disk, so do it far less often than the tick.
-		scan = Timer.scheduledTimer(withTimeInterval: 20, repeats: true) { [weak self] _ in
+		// Re-read the usage sources often so the flip to red lands promptly. The
+		// desktop file itself only updates every ~5 min, so this is a small read.
+		scan = Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { [weak self] _ in
 			Task { @MainActor in self?.refresh() }
 		}
 		// Timers don't fire while the lid is shut, so a Mac that slept wakes up

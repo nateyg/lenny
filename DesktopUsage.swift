@@ -51,16 +51,25 @@ enum DesktopUsage {
         guard window.count >= 2 else { return nil }
 
         // The current block opens at the first activity after the most recent
-        // reset — the last big downward step in fh — floored to ten minutes.
+        // reset (the last big downward step in fh, or a run of zeros).
         var resetIdx = 0
         for i in 1..<window.count where window[i].fh < window[i - 1].fh - 10 {
             resetIdx = i
         }
         var startIdx = resetIdx
         while startIdx < window.count && window[startIdx].fh == 0 { startIdx += 1 }
-        let firstActivity = window[min(startIdx, window.count - 1)].t
+        startIdx = min(startIdx, window.count - 1)
 
-        let blockStart = floorToBucket(firstActivity)
+        // That first non-zero sample already reflects usage that happened *before*
+        // it — sometimes well before, when the app was closed during the block's
+        // real start and there's a long gap with no samples. Pull the anchor back
+        // by that blind gap (capped at one bucket) so the estimate stops landing
+        // late; on a normal ~5-minute cadence this is a no-op after flooring.
+        let firstActivity = window[startIdx].t
+        let priorGap = startIdx > 0 ? firstActivity.timeIntervalSince(window[startIdx - 1].t) : 0
+        let anchor = firstActivity.addingTimeInterval(-min(priorGap, 600))
+
+        let blockStart = floorToBucket(anchor)
         let resetAt = blockStart.addingTimeInterval(TranscriptReader.blockHours)
         // If our reconstruction already expired, the file is mid-reset; bail so the
         // caller falls back rather than showing a stale window.
